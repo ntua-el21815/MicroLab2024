@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328PB"</DEVICE>
+ <WORKING_DIR>C:\Users\nicho\MPLABXProjects\Exercise_3.1.X</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>Exercise1.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc\m328PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>dist/default/debug/Exercise_3.1.X.debug.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Exercise1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>dist/default/debug/Exercise_3.1.X.debug.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>Exercise1.asm</FILE><LINE>13</LINE></reset>
+  <dc_values><FILE>Exercise1.asm</FILE><LINE>83</LINE></dc_values>
+  <no_carry><FILE>Exercise1.asm</FILE><LINE>34</LINE></no_carry>
+  <main><FILE>Exercise1.asm</FILE><LINE>37</LINE></main>
+  <incr><FILE>Exercise1.asm</FILE><LINE>44</LINE></incr>
+  <output><FILE>Exercise1.asm</FILE><LINE>50</LINE></output>
+  <wait_x_msec><FILE>Exercise1.asm</FILE><LINE>73</LINE></wait_x_msec>
+  <delay_inner><FILE>Exercise1.asm</FILE><LINE>58</LINE></delay_inner>
+  <loop2><FILE>Exercise1.asm</FILE><LINE>60</LINE></loop2>
+  <delay_outer><FILE>Exercise1.asm</FILE><LINE>67</LINE></delay_outer>
+  <wait_1_ms><FILE>Exercise1.asm</FILE><LINE>78</LINE></wait_1_ms>
+ </LABELS>
+</ASSEMBLER_INFO>

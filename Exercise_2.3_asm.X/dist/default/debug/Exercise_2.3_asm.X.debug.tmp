@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328PB"</DEVICE>
+ <WORKING_DIR>C:\Users\nicho\MPLABXProjects\Exercise_2.3_asm.X</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>Lights.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc\m328PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>dist/default/debug/Exercise_2.3_asm.X.debug.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Lights.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>dist/default/debug/Exercise_2.3_asm.X.debug.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>Lights.asm</FILE><LINE>59</LINE></reset>
+  <ISR1><FILE>Lights.asm</FILE><LINE>17</LINE></ISR1>
+  <start><FILE>Lights.asm</FILE><LINE>23</LINE></start>
+  <wait_x_msec><FILE>Lights.asm</FILE><LINE>108</LINE></wait_x_msec>
+  <no_refresh><FILE>Lights.asm</FILE><LINE>41</LINE></no_refresh>
+  <main><FILE>Lights.asm</FILE><LINE>78</LINE></main>
+  <delay_inner><FILE>Lights.asm</FILE><LINE>93</LINE></delay_inner>
+  <loop2><FILE>Lights.asm</FILE><LINE>95</LINE></loop2>
+  <delay_outer><FILE>Lights.asm</FILE><LINE>102</LINE></delay_outer>
+  <wait_1_ms><FILE>Lights.asm</FILE><LINE>113</LINE></wait_1_ms>
+ </LABELS>
+</ASSEMBLER_INFO>
