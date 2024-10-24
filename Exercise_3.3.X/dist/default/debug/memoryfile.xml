@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/debug/Exercise_3.2.X.debug.elf">                 
+  <executable name="dist/default/debug/Exercise_3.3.X.debug.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>667</used>                     
-      <free>32101</free>                     
+      <used>661</used>                     
+      <free>32107</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 

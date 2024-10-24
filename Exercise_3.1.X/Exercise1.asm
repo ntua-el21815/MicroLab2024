@@ -50,8 +50,8 @@ main:
     output:
     clr r24
     clr r25
-    ldi r24,0x00
-    ldi r25,0x01
+    ldi r24,0x60
+    ldi r25,0x00
     rcall wait_x_msec
     rjmp main
 	
