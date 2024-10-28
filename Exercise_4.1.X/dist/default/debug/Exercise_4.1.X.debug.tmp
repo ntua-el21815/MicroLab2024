@@ -38,14 +38,14 @@
   <lcd_clear_display><FILE>routines.asm</FILE><LINE>102</LINE></lcd_clear_display>
   <lcd_init><FILE>routines.asm</FILE><LINE>110</LINE></lcd_init>
   <convert_value><FILE>Exercise1.asm</FILE><LINE>89</LINE></convert_value>
-  <div_10><FILE>Exercise1.asm</FILE><LINE>122</LINE></div_10>
-  <dc_values><FILE>Exercise1.asm</FILE><LINE>134</LINE></dc_values>
+  <div_10><FILE>Exercise1.asm</FILE><LINE>121</LINE></div_10>
+  <dc_values><FILE>Exercise1.asm</FILE><LINE>133</LINE></dc_values>
   <main><FILE>Exercise1.asm</FILE><LINE>78</LINE></main>
   <Start_conv><FILE>Exercise1.asm</FILE><LINE>79</LINE></Start_conv>
   <to_voltage><FILE>Exercise1.asm</FILE><LINE>100</LINE></to_voltage>
-  <mod_10><FILE>Exercise1.asm</FILE><LINE>114</LINE></mod_10>
-  <too_big><FILE>Exercise1.asm</FILE><LINE>111</LINE></too_big>
-  <div><FILE>Exercise1.asm</FILE><LINE>115</LINE></div>
-  <sub_10><FILE>Exercise1.asm</FILE><LINE>126</LINE></sub_10>
+  <mod_10><FILE>Exercise1.asm</FILE><LINE>113</LINE></mod_10>
+  <too_big><FILE>Exercise1.asm</FILE><LINE>110</LINE></too_big>
+  <div><FILE>Exercise1.asm</FILE><LINE>114</LINE></div>
+  <sub_10><FILE>Exercise1.asm</FILE><LINE>125</LINE></sub_10>
  </LABELS>
 </ASSEMBLER_INFO>
