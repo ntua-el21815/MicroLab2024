@@ -117,6 +117,3 @@ loop_inn:
     brne delay_ms ;1 or 2 cycles
     
     ret ; 4 cycles
-
-
-

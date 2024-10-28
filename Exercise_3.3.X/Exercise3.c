@@ -1,7 +1,6 @@
 #define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
-#include <util/delay.h>
 
 #define MAX_DC 248    // 98% Duty Cycle
 #define MIN_DC 8 

@@ -1,0 +1,51 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328PB"</DEVICE>
+ <WORKING_DIR>C:\Users\nicho\MPLABXProjects\Exercise_4.1.X</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>Exercise1.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc\m328PBdef.inc</FILE>
+  <FILE>routines.asm</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>dist/default/debug/Exercise_4.1.X.debug.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Exercise1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>dist/default/debug/Exercise_4.1.X.debug.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>Exercise1.asm</FILE><LINE>57</LINE></reset>
+  <ADC1_INT><FILE>Exercise1.asm</FILE><LINE>14</LINE></ADC1_INT>
+  <wait_inner><FILE>routines.asm</FILE><LINE>11</LINE></wait_inner>
+  <wait_usec><FILE>routines.asm</FILE><LINE>18</LINE></wait_usec>
+  <loopa><FILE>routines.asm</FILE><LINE>21</LINE></loopa>
+  <delay_inner><FILE>routines.asm</FILE><LINE>30</LINE></delay_inner>
+  <loop3><FILE>routines.asm</FILE><LINE>32</LINE></loop3>
+  <wait_1msec><FILE>routines.asm</FILE><LINE>39</LINE></wait_1msec>
+  <loop5><FILE>routines.asm</FILE><LINE>44</LINE></loop5>
+  <wait_msec><FILE>routines.asm</FILE><LINE>53</LINE></wait_msec>
+  <my_loop><FILE>routines.asm</FILE><LINE>56</LINE></my_loop>
+  <write_2_nibbles><FILE>routines.asm</FILE><LINE>64</LINE></write_2_nibbles>
+  <lcd_data><FILE>routines.asm</FILE><LINE>86</LINE></lcd_data>
+  <lcd_command><FILE>routines.asm</FILE><LINE>94</LINE></lcd_command>
+  <lcd_clear_display><FILE>routines.asm</FILE><LINE>102</LINE></lcd_clear_display>
+  <lcd_init><FILE>routines.asm</FILE><LINE>110</LINE></lcd_init>
+  <convert_value><FILE>Exercise1.asm</FILE><LINE>89</LINE></convert_value>
+  <div_10><FILE>Exercise1.asm</FILE><LINE>122</LINE></div_10>
+  <dc_values><FILE>Exercise1.asm</FILE><LINE>134</LINE></dc_values>
+  <main><FILE>Exercise1.asm</FILE><LINE>78</LINE></main>
+  <Start_conv><FILE>Exercise1.asm</FILE><LINE>79</LINE></Start_conv>
+  <to_voltage><FILE>Exercise1.asm</FILE><LINE>100</LINE></to_voltage>
+  <mod_10><FILE>Exercise1.asm</FILE><LINE>114</LINE></mod_10>
+  <too_big><FILE>Exercise1.asm</FILE><LINE>111</LINE></too_big>
+  <div><FILE>Exercise1.asm</FILE><LINE>115</LINE></div>
+  <sub_10><FILE>Exercise1.asm</FILE><LINE>126</LINE></sub_10>
+ </LABELS>
+</ASSEMBLER_INFO>

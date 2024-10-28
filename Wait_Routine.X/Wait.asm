@@ -3,7 +3,7 @@
 ; delay = (1000*F1+14) cycles (about DEL_mS in mSeconds)
 
 .equ FOSC_MHZ=16        ; MHz
-.equ DEL_mS=10          ; mS
+.equ DEL_mS=10        ; mS
 .equ F1=FOSC_MHZ*DEL_mS
     
 ; initialize stack pointer
