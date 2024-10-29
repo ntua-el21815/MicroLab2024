@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  Exercise1.asm Mon Oct 28 13:49:44 2024
+AVRASM ver. 2.2.8  Exercise1.asm Tue Oct 29 23:33:03 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1146,7 +1146,7 @@ EQU  TIMER4_COMPAaddr 00000054
 EQU  TIMER4_COMPBaddr 00000056
 EQU  TIMER4_OVFaddr 00000058
 EQU  INT_VECTORS_SIZE 0000005a
-CSEG reset        000000c7
+CSEG reset        000000c8
 CSEG ADC1_INT     000000a6
 EQU  FOSC_MHZ     00000010
 EQU  DEL_mS       00000001
@@ -1171,13 +1171,16 @@ DEF  temp         r26
 DEF  temp2        r27
 DEF  ADC_L        r20
 DEF  ADC_H        r21
-CSEG convert_value 000000dc
-CSEG div_10       000000f1
-CSEG dc_values    000000fa
-CSEG main         000000d8
-CSEG Start_conv   000000d8
-CSEG to_voltage   000000e5
-CSEG mod_10       000000ec
-CSEG too_big      000000ec
-CSEG div          000000ec
-CSEG sub_10       000000f4
+CSEG to_voltage   000000e8
+CSEG convert_value 000000df
+CSEG div_10       0000010d
+CSEG dc_values    00000131
+CSEG main         000000db
+CSEG Start_conv   000000db
+CSEG conv         000000dc
+CSEG mod_10       00000107
+CSEG mu16         0000011b
+CSEG done         0000010c
+CSEG div          00000109
+CSEG divd         00000113
+CSEG no_carry     00000129

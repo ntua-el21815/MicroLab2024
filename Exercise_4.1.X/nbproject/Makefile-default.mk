@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Exercise1.asm routines.asm
+SOURCEFILES_QUOTED_IF_SPACED=routines.asm Exercise1.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Exercise1.obj ${OBJECTDIR}/routines.obj
-POSSIBLE_DEPFILES=${OBJECTDIR}/Exercise1.obj.d ${OBJECTDIR}/routines.obj.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/routines.obj ${OBJECTDIR}/Exercise1.obj
+POSSIBLE_DEPFILES=${OBJECTDIR}/routines.obj.d ${OBJECTDIR}/Exercise1.obj.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Exercise1.obj ${OBJECTDIR}/routines.obj
+OBJECTFILES=${OBJECTDIR}/routines.obj ${OBJECTDIR}/Exercise1.obj
 
 # Source Files
-SOURCEFILES=Exercise1.asm routines.asm
+SOURCEFILES=routines.asm Exercise1.asm
 
 # Pack Options 
 PACK_ASSEMBLER_OPTIONS=-I "${DFP_DIR}/avrasm/inc"  -i m328PBdef.inc
@@ -90,27 +90,27 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Exercise1.obj: Exercise1.asm  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} ${DISTDIR} 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Exercise1.obj 
-	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -m ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.map  -S ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.tmp Exercise1.asm
 ${OBJECTDIR}/routines.obj: routines.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} ${DISTDIR} 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/routines.obj 
 	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -m ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.map  -S ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.tmp routines.asm
-else
 ${OBJECTDIR}/Exercise1.obj: Exercise1.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} ${DISTDIR} 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Exercise1.obj 
-	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -S ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.tmp  -o ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.hex  -m ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.map  -l ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.lss Exercise1.asm
+	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -m ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.map  -S ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.tmp Exercise1.asm
+else
 ${OBJECTDIR}/routines.obj: routines.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} ${DISTDIR} 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/routines.obj 
 	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -S ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.tmp  -o ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.hex  -m ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.map  -l ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.lss routines.asm
+${OBJECTDIR}/Exercise1.obj: Exercise1.asm  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} ${DISTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Exercise1.obj 
+	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -S ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.tmp  -o ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.hex  -m ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.map  -l ${DISTDIR}/Exercise_4.1.X.${IMAGE_TYPE}.lss Exercise1.asm
 endif
 
 # ------------------------------------------------------------------------------------
