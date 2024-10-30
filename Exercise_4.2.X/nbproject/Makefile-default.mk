@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Exercise2.c
+SOURCEFILES_QUOTED_IF_SPACED=Exercise2.c routines.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Exercise2.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Exercise2.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Exercise2.o ${OBJECTDIR}/routines.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Exercise2.o.d ${OBJECTDIR}/routines.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Exercise2.o
+OBJECTFILES=${OBJECTDIR}/Exercise2.o ${OBJECTDIR}/routines.o
 
 # Source Files
-SOURCEFILES=Exercise2.c
+SOURCEFILES=Exercise2.c routines.asm
 
 
 
@@ -106,7 +106,19 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/routines.o: routines.asm  .generated_files/flags/default/193c872c7c6dbc85145641c7ecb385a6524d4eb9 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/routines.o.d 
+	@${RM} ${OBJECTDIR}/routines.o 
+	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x assembler-with-cpp -D__$(MP_PROCESSOR_OPTION)__    -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  -gdwarf-3 -mconst-data-in-progmem -Wa,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1   -MD -MP -MF "${OBJECTDIR}/routines.o.d" -MT "${OBJECTDIR}/routines.o.d" -MT ${OBJECTDIR}/routines.o -o ${OBJECTDIR}/routines.o  routines.asm 
+	
 else
+${OBJECTDIR}/routines.o: routines.asm  .generated_files/flags/default/c670c18aadaedc0f54e3df59db7ddc930ecaa6f7 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/routines.o.d 
+	@${RM} ${OBJECTDIR}/routines.o 
+	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)  -x assembler-with-cpp -D__$(MP_PROCESSOR_OPTION)__    -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  -gdwarf-3 -mconst-data-in-progmem -Wa,--defsym=__MPLAB_BUILD=1   -MD -MP -MF "${OBJECTDIR}/routines.o.d" -MT "${OBJECTDIR}/routines.o.d" -MT ${OBJECTDIR}/routines.o -o ${OBJECTDIR}/routines.o  routines.asm 
+	
 endif
 
 # ------------------------------------------------------------------------------------

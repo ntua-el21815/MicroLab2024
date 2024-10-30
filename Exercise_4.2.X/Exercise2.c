@@ -4,6 +4,7 @@
 
 char to_display[10] = {'0','1','2','3','4','5','6','7','8','9'};
 
+
 void convert(double voltage,char* output){
     //Gets voltage with accuracy of 2 decimal places and converts it to characters.
     voltage *= 100;

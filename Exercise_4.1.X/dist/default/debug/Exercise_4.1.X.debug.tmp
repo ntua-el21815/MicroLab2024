@@ -21,7 +21,7 @@
   <FILE>dist/default/debug/Exercise_4.1.X.debug.map</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <reset><FILE>Exercise1.asm</FILE><LINE>59</LINE></reset>
+  <reset><FILE>Exercise1.asm</FILE><LINE>68</LINE></reset>
   <ADC1_INT><FILE>Exercise1.asm</FILE><LINE>14</LINE></ADC1_INT>
   <wait_inner><FILE>routines.asm</FILE><LINE>11</LINE></wait_inner>
   <wait_usec><FILE>routines.asm</FILE><LINE>18</LINE></wait_usec>
@@ -37,18 +37,16 @@
   <lcd_command><FILE>routines.asm</FILE><LINE>94</LINE></lcd_command>
   <lcd_clear_display><FILE>routines.asm</FILE><LINE>102</LINE></lcd_clear_display>
   <lcd_init><FILE>routines.asm</FILE><LINE>110</LINE></lcd_init>
-  <to_voltage><FILE>Exercise1.asm</FILE><LINE>110</LINE></to_voltage>
-  <convert_value><FILE>Exercise1.asm</FILE><LINE>98</LINE></convert_value>
-  <div_10><FILE>Exercise1.asm</FILE><LINE>158</LINE></div_10>
-  <dc_values><FILE>Exercise1.asm</FILE><LINE>210</LINE></dc_values>
-  <main><FILE>Exercise1.asm</FILE><LINE>82</LINE></main>
-  <Start_conv><FILE>Exercise1.asm</FILE><LINE>83</LINE></Start_conv>
-  <conv><FILE>Exercise1.asm</FILE><LINE>92</LINE></conv>
-  <mod_10><FILE>Exercise1.asm</FILE><LINE>148</LINE></mod_10>
-  <mu16><FILE>Exercise1.asm</FILE><LINE>175</LINE></mu16>
-  <done><FILE>Exercise1.asm</FILE><LINE>155</LINE></done>
-  <div><FILE>Exercise1.asm</FILE><LINE>151</LINE></div>
-  <divd><FILE>Exercise1.asm</FILE><LINE>165</LINE></divd>
-  <no_carry><FILE>Exercise1.asm</FILE><LINE>198</LINE></no_carry>
+  <to_voltage><FILE>Exercise1.asm</FILE><LINE>115</LINE></to_voltage>
+  <convert_value><FILE>Exercise1.asm</FILE><LINE>105</LINE></convert_value>
+  <dc_values><FILE>Exercise1.asm</FILE><LINE>207</LINE></dc_values>
+  <main><FILE>Exercise1.asm</FILE><LINE>94</LINE></main>
+  <Start_conv><FILE>Exercise1.asm</FILE><LINE>95</LINE></Start_conv>
+  <get_digit><FILE>Exercise1.asm</FILE><LINE>153</LINE></get_digit>
+  <mu16><FILE>Exercise1.asm</FILE><LINE>172</LINE></mu16>
+  <subtr><FILE>Exercise1.asm</FILE><LINE>159</LINE></subtr>
+  <end_hunt><FILE>Exercise1.asm</FILE><LINE>169</LINE></end_hunt>
+  <no_carry><FILE>Exercise1.asm</FILE><LINE>195</LINE></no_carry>
+  <finished><FILE>Exercise1.asm</FILE><LINE>236</LINE></finished>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -31,23 +31,32 @@ ADC1_INT:
     ;Getting value left of decimal place
     rcall to_voltage
     rcall convert_value
-    rcall lcd_data
-    rcall div_10
     
+    ;ldi r24,0b00011000 ;Shifting cursor one place to the right.
+    ;call lcd_command
     ldi r24,'.'
-    rcall lcd_data
+    call lcd_data
     
     ;Getting value right of decimal place.
+    ;ldi r24,0b00011000 ;Shifting cursor one place to the right.
+    ;call lcd_command
+    ldi r24,10
+    mul temp,r24
+    mov temp,r0
+    mov temp2,r1
     rcall convert_value
-    rcall lcd_data
-    rcall div_10
     
+    ;ldi r24,0b00011000 ;Shifting cursor one place to the right.
+    ;call lcd_command
+    ldi r24,10
+    mul temp,r24
+    mov temp,r0
+    mov temp2,r1
     rcall convert_value
-    rcall lcd_data
-    rcall div_10
 
-    ldi r24, (1 << INTF1)
-    out EIFR, r24 ; Clear external interrupt 1 flag
+    in r24,ADIF
+    ori r24, (1 << ADIF)
+    out ADIF, r24 ; Clear ADC interrupt flag
     pop r24
     out SREG,r24
     pop r24
@@ -74,37 +83,33 @@ reset:
     ldi temp,DDRC
     andi temp,0b11111101 ;Setting PC1 as input for ADC1
     out DDRC,temp
+    ser r24
+    out DDRD, r24 ; set PORTD as output
+    clr r24
     sei ;Enable interrupts.
     
-    rcall lcd_init ;Routine to initialize the LCD display at start up properly.
-    ldi temp,100
+    call lcd_init ;Routine to initialize the LCD display at start up properly.
+    clr temp
     clr temp2
 main:
     Start_conv:
-;	lds temp, ADCSRA
-;	ori temp, (1<<ADSC) ; Set ADSC flag of ADCSRA
-;	sts ADCSRA, temp
-;    ldi r25,high(1000)
-;    ldi r24,low(1000)
-;    rcall wait_msec ;Waiting for 1000ms = 1s
-    ; Below just for debugging !!!!!!!!
-    rcall to_voltage
-    conv:
-    rcall convert_value
-    rcall div_10
-    rjmp conv
+	lds temp, ADCSRA
+	ori temp, (1<<ADSC) ; Set ADSC flag of ADCSRA
+	sts ADCSRA, temp
+    ldi r25,high(1000)
+    ldi r24,low(1000)
+    rcall wait_msec ;Waiting for 1000ms = 1s
+    rjmp main
     
    
 convert_value:
-    push temp2
-    push temp
+    push r24
     ;Puts into r24 the appropriate character to display on lcd.
-    rcall mod_10
-    ldi ZL,low(dc_values*2)
-    add ZL,temp ;Get from the table the value for the number.
-    lpm r24,Z	;Load it into r24 to give it to lcd_data.
-    pop temp
-    pop temp2
+    rcall get_digit
+    rcall dc_values
+    call lcd_data
+    ;Result in r24
+    pop r24
     ret
 
 to_voltage:
@@ -145,31 +150,23 @@ to_voltage:
     pop r0
     ret
     
-mod_10:
-    cpi temp,10
-    brlt done
-    div:
-	sbiw temp,10
-	cpi temp,10
-	brge div
-    done:
-    ret
-    
-div_10:
-    push r25
-    push r24
-    mov r24,temp
-    mov r25,temp2
-    clr temp
-    clr temp2
-    divd:
-	sbiw r24,10
-	adiw temp,1
-	cpi r24,0
-	brge divd
-    sbiw temp,1
-    pop r24
-    pop r25
+get_digit:
+    ldi r24,0
+    cpi temp2,1
+    brpl subtr
+    cpi temp,100
+    brcs end_hunt
+    subtr:
+	inc r24
+	sbiw temp,50
+	sbiw temp,50
+	cpi temp2,1
+	brpl subtr
+	cln
+	cpi temp,100
+	brcs end_hunt
+	rjmp subtr
+    end_hunt:
     ret
 
 mu16:
@@ -208,4 +205,34 @@ no_carry:
     ret
 
 dc_values:
-    .db '0','1','2','3','4','5','6','7','8','9'
+    ldi r25,'0'
+    cpi r24,0
+    breq finished
+    ldi r25,'1'
+    cpi r24,1
+    breq finished
+    ldi r25,'2'
+    cpi r24,2
+    breq finished
+    ldi r25,'3'
+    cpi r24,3
+    breq finished
+    ldi r25,'4'
+    cpi r24,4
+    breq finished
+    ldi r25,'5'
+    cpi r24,5
+    breq finished
+    ldi r25,'6'
+    cpi r24,6
+    breq finished
+    ldi r25,'7'
+    cpi r24,7
+    breq finished
+    ldi r25,'8'
+    cpi r24,8
+    breq finished
+    ldi r25,'9'
+    finished:
+    mov r24,r25
+    ret
