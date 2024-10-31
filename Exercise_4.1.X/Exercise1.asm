@@ -12,7 +12,6 @@ rjmp ADC1_INT
 .def ADC_H = r21
     
 ADC1_INT:
-    ;Remember to make cursor shifts!!!!!!!!!!!!!
     push temp
     push temp2
     push r25
@@ -20,6 +19,7 @@ ADC1_INT:
     in r24,SREG
     push r24
     ;Interrupt service routine for when ADC conversion has been finalised.
+    
     lds ADC_L,ADCL ; Read ADC result(Left adjusted)
     lds ADC_H,ADCH
     
@@ -30,26 +30,20 @@ ADC1_INT:
     
     ;Getting value left of decimal place
     rcall to_voltage
-    rcall convert_value
+    rcall convert_value ;Also displays converted value to lcd display
     
-    ;ldi r24,0b00011000 ;Shifting cursor one place to the right.
-    ;call lcd_command
     ldi r24,'.'
     call lcd_data
     
-    ;Getting value right of decimal place.
-    ;ldi r24,0b00011000 ;Shifting cursor one place to the right.
-    ;call lcd_command
-    ldi r24,10
-    mul temp,r24
+    ;Getting values right of decimal place.
+    ldi r24,10 
+    mul temp,r24 ;Multiplication by 10 to get next digit
     mov temp,r0
     mov temp2,r1
     rcall convert_value
     
-    ;ldi r24,0b00011000 ;Shifting cursor one place to the right.
-    ;call lcd_command
     ldi r24,10
-    mul temp,r24
+    mul temp,r24 ;Multiplication by 10 to get next digit
     mov temp,r0
     mov temp2,r1
     rcall convert_value
@@ -67,8 +61,6 @@ ADC1_INT:
  
 reset:
     ;Store table address in Z double register
-    ldi ZH,high(dc_values*2)
-    ldi ZL,low(dc_values*2)
     
     ; initialize stack pointer
     ldi r24, LOW(RAMEND)
@@ -89,7 +81,7 @@ reset:
     sei ;Enable interrupts.
     
     call lcd_init ;Routine to initialize the LCD display at start up properly.
-    clr temp
+    clr temp ;Initially clear the temp registers.
     clr temp2
 main:
     Start_conv:
@@ -104,11 +96,14 @@ main:
    
 convert_value:
     push r24
+    push r25
     ;Puts into r24 the appropriate character to display on lcd.
     rcall get_digit
-    rcall dc_values
+    ldi r25,0x30
+    add r24,r25 ;Add 0x30 to get the ASCII character needed.
     call lcd_data
     ;Result in r24
+    pop r25
     pop r24
     ret
 
@@ -151,6 +146,7 @@ to_voltage:
     ret
     
 get_digit:
+    ; We subtract a 100 repeatedly to get the 1st digit
     ldi r24,0
     cpi temp2,1
     brpl subtr
@@ -202,37 +198,4 @@ no_carry:
     pop r24
     pop r23
     pop r22
-    ret
-
-dc_values:
-    ldi r25,'0'
-    cpi r24,0
-    breq finished
-    ldi r25,'1'
-    cpi r24,1
-    breq finished
-    ldi r25,'2'
-    cpi r24,2
-    breq finished
-    ldi r25,'3'
-    cpi r24,3
-    breq finished
-    ldi r25,'4'
-    cpi r24,4
-    breq finished
-    ldi r25,'5'
-    cpi r24,5
-    breq finished
-    ldi r25,'6'
-    cpi r24,6
-    breq finished
-    ldi r25,'7'
-    cpi r24,7
-    breq finished
-    ldi r25,'8'
-    cpi r24,8
-    breq finished
-    ldi r25,'9'
-    finished:
-    mov r24,r25
     ret

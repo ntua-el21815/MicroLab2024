@@ -21,7 +21,7 @@
   <FILE>dist/default/debug/Exercise_4.1.X.debug.map</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <reset><FILE>Exercise1.asm</FILE><LINE>68</LINE></reset>
+  <reset><FILE>Exercise1.asm</FILE><LINE>62</LINE></reset>
   <ADC1_INT><FILE>Exercise1.asm</FILE><LINE>14</LINE></ADC1_INT>
   <wait_inner><FILE>routines.asm</FILE><LINE>11</LINE></wait_inner>
   <wait_usec><FILE>routines.asm</FILE><LINE>18</LINE></wait_usec>
@@ -37,16 +37,14 @@
   <lcd_command><FILE>routines.asm</FILE><LINE>94</LINE></lcd_command>
   <lcd_clear_display><FILE>routines.asm</FILE><LINE>102</LINE></lcd_clear_display>
   <lcd_init><FILE>routines.asm</FILE><LINE>110</LINE></lcd_init>
-  <to_voltage><FILE>Exercise1.asm</FILE><LINE>115</LINE></to_voltage>
-  <convert_value><FILE>Exercise1.asm</FILE><LINE>105</LINE></convert_value>
-  <dc_values><FILE>Exercise1.asm</FILE><LINE>207</LINE></dc_values>
-  <main><FILE>Exercise1.asm</FILE><LINE>94</LINE></main>
-  <Start_conv><FILE>Exercise1.asm</FILE><LINE>95</LINE></Start_conv>
-  <get_digit><FILE>Exercise1.asm</FILE><LINE>153</LINE></get_digit>
-  <mu16><FILE>Exercise1.asm</FILE><LINE>172</LINE></mu16>
-  <subtr><FILE>Exercise1.asm</FILE><LINE>159</LINE></subtr>
-  <end_hunt><FILE>Exercise1.asm</FILE><LINE>169</LINE></end_hunt>
-  <no_carry><FILE>Exercise1.asm</FILE><LINE>195</LINE></no_carry>
-  <finished><FILE>Exercise1.asm</FILE><LINE>236</LINE></finished>
+  <to_voltage><FILE>Exercise1.asm</FILE><LINE>110</LINE></to_voltage>
+  <convert_value><FILE>Exercise1.asm</FILE><LINE>97</LINE></convert_value>
+  <main><FILE>Exercise1.asm</FILE><LINE>86</LINE></main>
+  <Start_conv><FILE>Exercise1.asm</FILE><LINE>87</LINE></Start_conv>
+  <get_digit><FILE>Exercise1.asm</FILE><LINE>148</LINE></get_digit>
+  <mu16><FILE>Exercise1.asm</FILE><LINE>168</LINE></mu16>
+  <subtr><FILE>Exercise1.asm</FILE><LINE>155</LINE></subtr>
+  <end_hunt><FILE>Exercise1.asm</FILE><LINE>165</LINE></end_hunt>
+  <no_carry><FILE>Exercise1.asm</FILE><LINE>191</LINE></no_carry>
  </LABELS>
 </ASSEMBLER_INFO>

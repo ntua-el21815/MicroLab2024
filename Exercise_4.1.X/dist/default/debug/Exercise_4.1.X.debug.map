@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  Exercise1.asm Wed Oct 30 17:30:37 2024
+AVRASM ver. 2.2.8  Exercise1.asm Thu Oct 31 10:39:32 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -1171,14 +1171,12 @@ DEF  temp         r26
 DEF  temp2        r27
 DEF  ADC_L        r20
 DEF  ADC_H        r21
-CSEG to_voltage   000000f3
-CSEG convert_value 000000ec
-CSEG dc_values    00000137
-CSEG main         000000e3
-CSEG Start_conv   000000e3
-CSEG get_digit    00000112
-CSEG mu16         00000121
-CSEG subtr        00000117
-CSEG end_hunt     00000120
-CSEG no_carry     0000012f
-CSEG finished     00000153
+CSEG to_voltage   000000f4
+CSEG convert_value 000000ea
+CSEG main         000000e1
+CSEG Start_conv   000000e1
+CSEG get_digit    00000113
+CSEG mu16         00000122
+CSEG subtr        00000118
+CSEG end_hunt     00000121
+CSEG no_carry     00000130
