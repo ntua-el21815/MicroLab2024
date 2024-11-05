@@ -6,7 +6,7 @@
 #define PCA9555_0_ADDRESS 0x40 //A0=A1=A2=0 by hardware
 #define TWI_READ 1 // reading from twi device
 #define TWI_WRITE 0 // writing to twi device
-#define SCL_CLOCK 50000L // twi clock in Hz Fscl=Fcpu/(16+2*TWBR0_VALUE*PRESCALER_VALUE)
+#define SCL_CLOCK 100000L // twi clock in Hz Fscl=Fcpu/(16+2*TWBR0_VALUE*PRESCALER_VALUE)
 #define TWBR0_VALUE ((F_CPU/SCL_CLOCK)-16)/2
 
 
@@ -37,8 +37,6 @@ typedef enum {
 #define TW_MR_DATA_NACK 0x58
 #define TW_STATUS_MASK 0b11111000
 #define TW_STATUS (TWSR0 & TW_STATUS_MASK)
-
-uint8_t msg[] = "NESTORAS";
 
 void twi_init(void)
 {
@@ -168,87 +166,26 @@ uint8_t PCA9555_0_read(PCA9555_REGISTERS reg)
     return ret_val;
 }
 
-
-void write_nibbles(uint8_t data) {
-    uint8_t high_nibble = data & 0xF0; // Get the upper 4 bits
-    uint8_t low_nibble = ((data & 0x0F) << 4) & 0xF0; // Get the lower 4 bits
-    
-    // Write high nibble
-    uint8_t reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, high_nibble + (reg & 0x0F)); // Set high nibble while keeping lower bits
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg | 0x08);
-    __asm__ __volatile__("nop");
-    __asm__ __volatile__("nop");
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0,reg & 0xF7);
-
-    // Write low nibble
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0,(reg & 0x0F) + low_nibble); // Set low nibble while keeping lower bits
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg | 0x08);
-    __asm__ __volatile__("nop");
-    __asm__ __volatile__("nop");
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg & 0xF7);
-}
-
-void lcd_data(unsigned char data) {
-    uint8_t reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg | 0x04);
-    write_nibbles(data); 
-    _delay_us(250);           
-}
-
-void lcd_command(unsigned char cmd) {
-    uint8_t reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg & 0xFB);    
-    write_nibbles(cmd);      
-    _delay_us(250);         
-}
-
-void lcd_clear_display(void) {
-    lcd_command(0x01);
-    _delay_ms(5);      
-}
-
-void lcd_init(void) {
-    _delay_ms(200);  
-    uint8_t reg;
-    for(int i=0;i<3;i++){
-        PCA9555_0_write(REG_OUTPUT_0, 0x30);
-        reg = PCA9555_0_read(REG_OUTPUT_0);
-        PCA9555_0_write(REG_OUTPUT_0, reg | 0x08);
-         __asm__ __volatile__("nop");  
-         __asm__ __volatile__("nop");
-        reg = PCA9555_0_read(REG_OUTPUT_0);
-        PCA9555_0_write(REG_OUTPUT_0, reg & 0XF7); 
-        _delay_us(250);
-    }
-    PCA9555_0_write(REG_OUTPUT_0, 0x20);
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg | 0x08);
-     __asm__ __volatile__("nop");
-     __asm__ __volatile__("nop");
-    reg = PCA9555_0_read(REG_OUTPUT_0);
-    PCA9555_0_write(REG_OUTPUT_0, reg & 0XF7);  
-    _delay_us(250);
-    lcd_command(0x28);    
-    lcd_command(0x0C);
-    lcd_clear_display();  
-    lcd_command(0x06);
-    return;
-}
-
 int main(void) {
     twi_init();
-    PCA9555_0_write(REG_CONFIGURATION_0, 0x00); //Set EXT_PORT0 as output Configuration port 0 register
+    PCA9555_0_write(REG_CONFIGURATION_0, 0xF0); //Set EXT_PORT0(0-3) as output Configuration port 0 register
+    PCA9555_0_write(REG_CONFIGURATION_1, 0xF0); //Set EXT_PORT1(3-7) as output Configuration port 1 register
     while(1)
     {
-        for(int i=0;i<7;i++){
-            lcd_data(msg[i]);
+        uint8_t input = PCA9555_0_read(REG_INPUT_1);
+        printf("%d\n",input);
+        if(input & (1<<4)){
+            PCA9555_0_write(REG_OUTPUT_0,0x01);
         }
-        _delay_ms(200);
+        else if(input & (1<<5)){
+            PCA9555_0_write(REG_OUTPUT_0,(1<<1));
+        }
+        else if(input & (1<<6)){
+            PCA9555_0_write(REG_OUTPUT_0,(1<<2));
+        }
+        else{
+            PCA9555_0_write(REG_OUTPUT_0,(1<<3));
+        }
+        _delay_ms(100);
     }
 }
