@@ -49,7 +49,7 @@ int main (void){
 }
 
 void mode1(void){
-     
+     //Change duty cycle via buttons PD1,PD2
     if (!(PIND & (1 << PD1))) {
        
         if (i<12) {
@@ -73,8 +73,9 @@ void mode1(void){
 }
 
 void mode2(void){
-    ADCSRA |= (1 << ADSC);                   // Start conversion
+    //Change duty cycles via knob.
+    ADCSRA |= (1 << ADSC);// Start conversion
    
-    DC_VALUE = ADC /4;
+    DC_VALUE = ADC /4; //(*256/1024)
     OCR1AL = DC_VALUE;
 }

@@ -5,6 +5,7 @@
 
 char to_display[10] = {'0','1','2','3','4','5','6','7','8','9'};
 char msg[] = "GAS DETECTED!";
+char msg2[] = "CLEAR";
 volatile char blink = 0;
 volatile int level;
 
@@ -94,6 +95,9 @@ int main(){
             }
         }
         else{
+            for(int i=0;i<5;i++){
+                lcd_data(msg2[i]);
+            }
             PORTB = level;
         }
         _delay_ms(100); //1 second delay
@@ -102,6 +106,7 @@ int main(){
 
 ISR(ADC_vect) // ADC Interrupt Service Routine
 {
+    //The values correspond to ppms 35,70,105,...
     int ADC_value = ADC;
     if(ADC_value < 171){
         level = 0b00001;
@@ -121,5 +126,4 @@ ISR(ADC_vect) // ADC Interrupt Service Routine
     else{
         level = 0b111111;
     }
-    //Remember to clear interrupt.
 }

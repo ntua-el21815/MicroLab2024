@@ -39,7 +39,6 @@ int main() {
     TCCR1B = (1<<WGM12) | (1<<CS12);
 
     DDRB = 0b00100111; //set PB1 as output and PB3,PB4 as inputs.
-    DDRD = 0x00;
     
     unsigned int adc_sum = 0;
     unsigned int adc_avg = 0;
