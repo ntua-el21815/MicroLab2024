@@ -247,7 +247,6 @@ int main(void) {
     PCA9555_0_write(REG_CONFIGURATION_0, 0x00); //Set EXT_PORT0 as output Configuration port 0 register
     lcd_init();
     lcd_clear_display();
-    lcd_clear_display();
     for(int i=0;i<15;i++){
         lcd_data(msg[i]);
     }

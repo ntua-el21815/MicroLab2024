@@ -172,20 +172,9 @@ int main(void) {
     PCA9555_0_write(REG_CONFIGURATION_1, 0xF0); //Set EXT_PORT1(3-7) as output Configuration port 1 register
     while(1)
     {
+        PCA9555_0_write(REG_OUTPUT_1,0x00);
         uint8_t input = PCA9555_0_read(REG_INPUT_1);
-        printf("%d\n",input);
-        if(input & (1<<4)){
-            PCA9555_0_write(REG_OUTPUT_0,0x01);
-        }
-        else if(input & (1<<5)){
-            PCA9555_0_write(REG_OUTPUT_0,(1<<1));
-        }
-        else if(input & (1<<6)){
-            PCA9555_0_write(REG_OUTPUT_0,(1<<2));
-        }
-        else{
-            PCA9555_0_write(REG_OUTPUT_0,(1<<3));
-        }
+        PCA9555_0_write(REG_OUTPUT_0,~((input & 0xF0) >> 4));
         _delay_ms(100);
     }
 }
