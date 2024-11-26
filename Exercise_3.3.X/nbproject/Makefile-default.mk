@@ -88,14 +88,14 @@ MP_PROCESSOR_OPTION=ATmega328PB
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Exercise3.o: Exercise3.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/Exercise3.o: Exercise3.c  .generated_files/flags/default/42622d28627dae540ec280b32591cc9a8b3856a1 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Exercise3.o.d 
 	@${RM} ${OBJECTDIR}/Exercise3.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__    -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/Exercise3.o.d" -MT "${OBJECTDIR}/Exercise3.o.d" -MT ${OBJECTDIR}/Exercise3.o -o ${OBJECTDIR}/Exercise3.o Exercise3.c 
 	
 else
-${OBJECTDIR}/Exercise3.o: Exercise3.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/Exercise3.o: Exercise3.c  .generated_files/flags/default/77c3cc0bc5f43e308ae5faab6ca63d49264f4739 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Exercise3.o.d 
 	@${RM} ${OBJECTDIR}/Exercise3.o 

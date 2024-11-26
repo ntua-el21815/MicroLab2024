@@ -4,8 +4,10 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>Exercise_8.2</name>
-            <creation-uuid>9aaf1cc5-7f2c-4545-ae85-3665bdafeead</creation-uuid>
+            <name>Exercise_8.1</name>
+            <creation-uuid>6cfb13df-7e35-49c6-a5d7-e9878ab64363</creation-uuid>
             <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
@@ -14,7 +16,6 @@
                     <type>2</type>
                 </confElem>
             </confList>
-            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>

@@ -88,14 +88,14 @@ MP_PROCESSOR_OPTION=ATmega328PB
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Lights.o: Lights.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/Lights.o: Lights.c  .generated_files/flags/default/9a4660fbac728d71be09c2874c2b7254634bd7cf .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Lights.o.d 
 	@${RM} ${OBJECTDIR}/Lights.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__    -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem     -MD -MP -MF "${OBJECTDIR}/Lights.o.d" -MT "${OBJECTDIR}/Lights.o.d" -MT ${OBJECTDIR}/Lights.o -o ${OBJECTDIR}/Lights.o Lights.c 
 	
 else
-${OBJECTDIR}/Lights.o: Lights.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/Lights.o: Lights.c  .generated_files/flags/default/786a5f5f21d2eaffdd84a98862c9ced3b0b1825b .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Lights.o.d 
 	@${RM} ${OBJECTDIR}/Lights.o 
