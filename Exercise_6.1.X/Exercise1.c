@@ -176,10 +176,8 @@ uint8_t scan_row(uint8_t row){
 uint16_t scan_keypad(void){
     uint16_t result;
     result = (uint16_t) scan_row(4);
-    //_delay_ms(10);
     for(int row=3;row>0;row--){
         result = (result<<4) | (uint16_t) scan_row(row);
-        //_delay_ms(10);
     }
     return result;
 }

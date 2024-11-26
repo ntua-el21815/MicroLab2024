@@ -88,14 +88,14 @@ MP_PROCESSOR_OPTION=ATmega328PB
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Exercise2.o: Exercise2.c  .generated_files/flags/default/63e7d5b43be1833d6eb2a307489cd3af32f97c13 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+${OBJECTDIR}/Exercise2.o: Exercise2.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Exercise2.o.d 
 	@${RM} ${OBJECTDIR}/Exercise2.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/Exercise2.o.d" -MT "${OBJECTDIR}/Exercise2.o.d" -MT ${OBJECTDIR}/Exercise2.o -o ${OBJECTDIR}/Exercise2.o Exercise2.c 
 	
 else
-${OBJECTDIR}/Exercise2.o: Exercise2.c  .generated_files/flags/default/ec55b3e03e1b2e0bd8dd7cbe65b76204f9ff8931 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+${OBJECTDIR}/Exercise2.o: Exercise2.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Exercise2.o.d 
 	@${RM} ${OBJECTDIR}/Exercise2.o 
