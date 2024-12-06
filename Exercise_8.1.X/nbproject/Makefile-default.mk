@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Exercise1.c lcd.c uart.c twi.c temperature.c keypad.c
+SOURCEFILES_QUOTED_IF_SPACED=lcd.c uart.c twi.c temperature.c keypad.c Exercise1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Exercise1.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/twi.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/keypad.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Exercise1.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/twi.o.d ${OBJECTDIR}/temperature.o.d ${OBJECTDIR}/keypad.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lcd.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/twi.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/Exercise1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/twi.o.d ${OBJECTDIR}/temperature.o.d ${OBJECTDIR}/keypad.o.d ${OBJECTDIR}/Exercise1.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Exercise1.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/twi.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/keypad.o
+OBJECTFILES=${OBJECTDIR}/lcd.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/twi.o ${OBJECTDIR}/temperature.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/Exercise1.o
 
 # Source Files
-SOURCEFILES=Exercise1.c lcd.c uart.c twi.c temperature.c keypad.c
+SOURCEFILES=lcd.c uart.c twi.c temperature.c keypad.c Exercise1.c
 
 
 
@@ -88,12 +88,6 @@ MP_PROCESSOR_OPTION=ATmega328PB
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Exercise1.o: Exercise1.c  .generated_files/flags/default/f6526f6946569fdaabee345d480d6ccb7aeb3279 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Exercise1.o.d 
-	@${RM} ${OBJECTDIR}/Exercise1.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/Exercise1.o.d" -MT "${OBJECTDIR}/Exercise1.o.d" -MT ${OBJECTDIR}/Exercise1.o -o ${OBJECTDIR}/Exercise1.o Exercise1.c 
-	
 ${OBJECTDIR}/lcd.o: lcd.c  .generated_files/flags/default/364b719f52822c4526df006f7e7156fe787d80 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lcd.o.d 
@@ -124,13 +118,13 @@ ${OBJECTDIR}/keypad.o: keypad.c  .generated_files/flags/default/880c29ea086f36da
 	@${RM} ${OBJECTDIR}/keypad.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/keypad.o.d" -MT "${OBJECTDIR}/keypad.o.d" -MT ${OBJECTDIR}/keypad.o -o ${OBJECTDIR}/keypad.o keypad.c 
 	
-else
-${OBJECTDIR}/Exercise1.o: Exercise1.c  .generated_files/flags/default/115941638f140a08dec8fdf074dd0066e1b77933 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+${OBJECTDIR}/Exercise1.o: Exercise1.c  .generated_files/flags/default/f6526f6946569fdaabee345d480d6ccb7aeb3279 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Exercise1.o.d 
 	@${RM} ${OBJECTDIR}/Exercise1.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/Exercise1.o.d" -MT "${OBJECTDIR}/Exercise1.o.d" -MT ${OBJECTDIR}/Exercise1.o -o ${OBJECTDIR}/Exercise1.o Exercise1.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/Exercise1.o.d" -MT "${OBJECTDIR}/Exercise1.o.d" -MT ${OBJECTDIR}/Exercise1.o -o ${OBJECTDIR}/Exercise1.o Exercise1.c 
 	
+else
 ${OBJECTDIR}/lcd.o: lcd.c  .generated_files/flags/default/33f74833aa7344d1033031fa42ee67df3f00fd4e .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lcd.o.d 
@@ -160,6 +154,12 @@ ${OBJECTDIR}/keypad.o: keypad.c  .generated_files/flags/default/6534a4fdba35f1ef
 	@${RM} ${OBJECTDIR}/keypad.o.d 
 	@${RM} ${OBJECTDIR}/keypad.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/keypad.o.d" -MT "${OBJECTDIR}/keypad.o.d" -MT ${OBJECTDIR}/keypad.o -o ${OBJECTDIR}/keypad.o keypad.c 
+	
+${OBJECTDIR}/Exercise1.o: Exercise1.c  .generated_files/flags/default/115941638f140a08dec8fdf074dd0066e1b77933 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Exercise1.o.d 
+	@${RM} ${OBJECTDIR}/Exercise1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/Exercise1.o.d" -MT "${OBJECTDIR}/Exercise1.o.d" -MT ${OBJECTDIR}/Exercise1.o -o ${OBJECTDIR}/Exercise1.o Exercise1.c 
 	
 endif
 
