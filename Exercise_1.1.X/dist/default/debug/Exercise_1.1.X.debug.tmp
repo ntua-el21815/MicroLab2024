@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328PB"</DEVICE>
+ <WORKING_DIR>C:\Users\nicho\MPLABXProjects\Exercise_1.1.X</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>Wait.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc\m328PBdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>dist/default/debug/Exercise_1.1.X.debug.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Wait.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>dist/default/debug/Exercise_1.1.X.debug.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <loop1><FILE>Wait.asm</FILE><LINE>22</LINE></loop1>
+  <wait_x_msec><FILE>Wait.asm</FILE><LINE>55</LINE></wait_x_msec>
+  <delay_inner><FILE>Wait.asm</FILE><LINE>32</LINE></delay_inner>
+  <loop3><FILE>Wait.asm</FILE><LINE>34</LINE></loop3>
+  <wait_1_msec><FILE>Wait.asm</FILE><LINE>42</LINE></wait_1_msec>
+  <loop4><FILE>Wait.asm</FILE><LINE>46</LINE></loop4>
+  <loop5><FILE>Wait.asm</FILE><LINE>60</LINE></loop5>
+ </LABELS>
+</ASSEMBLER_INFO>

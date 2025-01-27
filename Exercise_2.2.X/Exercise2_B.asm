@@ -14,11 +14,12 @@ rjmp ISR0
 
 find_out:
     ;Antistoixoume ton arithmo ton pathmenon koumpion ston binary 
-    ;arithmo pou exei tosous assous ksekinontaw apo to bit 0.
+    ;arithmo pou exei tosous assous ksekinontas apo to bit 0.
     mov r26,r25 ;If r25 == 0 or r25 == 1 then it is already translated.
+    ;Checking for each case (0,1,2,3,4)
     cpi r25,2
     in r23,SREG
-    sbrc r23,1 ;Skips next instruction if r23(1) == 0
+    sbrc r23,1 ;Skips next instruction if r23(1) == 0,which is the zero flag
     ldi r26,3
     cpi r25,3
     in r23,SREG
@@ -36,6 +37,7 @@ ISR0:
     in r24,SREG
     push r24
     start:
+	;To counter sparking
 	ldi r24, low (DEL_NU2) ;Set delay (number of cycles)
 	ldi r25, high (DEL_NU2)
 	rcall delay_ms
@@ -44,8 +46,9 @@ ISR0:
 	brne start
     ;Start of main body of routine
     clr r25
-    in r20,PINB
-    sbrc r20,0
+    in r20,PINB	;Reading the contents of PORTB	
+    ;Determining how many buttons from PB0-PB3 are pressed at the moment
+    sbrc r20,0	
     inc r25
     sbrc r20,1
     inc r25
@@ -79,12 +82,11 @@ reset:
     out DDRC,r26
     ;Init PORTD as input
     clr r26
-    out DDRB,r26
     out DDRD,r26
-    ; Interrupt on rising edge of INTO pin
-    ldi r24, (0 << ISC00) | (0 << ISC01) ;Interrupt sthn xamhlh stathmh
+    ; Interrupt on rising edge of INT0 pin
+    ldi r24, (0 << ISC00) | (0 << ISC01) ;Interrupt on low value
     sts EICRA, r24
-    ;Enable the INTO interrupt (PD2)
+    ;Enable the INT0 interrupt (PD2)
     ldi r24, (1 << INT0)
     out EIMSK, r24
     sei ; Sets the Global Interrupt Flag

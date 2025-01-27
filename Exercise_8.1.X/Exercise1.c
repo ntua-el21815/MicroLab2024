@@ -6,9 +6,7 @@
 #include "temperature.h"
 #include "keypad.h"
 
-#define MAKE_ROOM_TEMP 192;
-
-enum STATUS {NURSE_CALL,CHECK_TEMP,CHECK_PRESSURE,OK};
+#define MAKE_ROOM_TEMP 12;
 
 void get_ans(char* ans){
     int i=0;
@@ -18,28 +16,10 @@ void get_ans(char* ans){
     ans[i] = '\0';
 }
 
-double get_pressure(){
-    ADCSRA |= (1 << ADSC); //Start conversion 
-    while (ADCSRA & (1 << ADSC)); //Waiting for conversion to end.
-    double ADC_value = (double) ADC;
-    return (ADC_value * 20)/1024;
-}
-
-
-int get_status(){
-    char read1;
-    while((read1 = keypad_to_ascii()) == ' ');
-    char read2;
-    while((read2 = keypad_to_ascii()) == read1){
-        if(read2 == ' '){
-            break;
-        }
+void send_string(const char* mystr){
+    for(int i=0;i<strlen(mystr);i++){
+        usart_transmit(mystr[i]);
     }
-    while(read2 == ' '){
-        read2 = keypad_to_ascii();
-    }
-    while(read2 == keypad_to_ascii());
-    return 0;
 }
 
 int main() {

@@ -42,7 +42,7 @@ double get_pressure(){
 }
 
 
-status get_status(double temperature,double pressure,status previous){
+status get_status(double temperature,double pressure){
     char read;
     if((read = keypad_to_ascii()) == ' '){
         return IDLE;
@@ -111,7 +111,7 @@ int main() {
         
         double temp = get_temp(int_temp) + MAKE_ROOM_TEMP;
         double pressure = get_pressure();
-        current_status = get_status(temp,pressure,current_status);
+        current_status = get_status(temp,pressure);
         char to_display[30];
         snprintf(to_display,20,"%.2f C %.2f cm H20",temp,pressure);
         if(current_status != IDLE){

@@ -2,7 +2,7 @@
  * main.c
  *
  * Created: 16/10/2024 12:31:38 PM
- *  Author: Nikolaos
+ *  Author: Nikolaos Angelitsis , Nestoras Koumis
  */ 
 
 #define F_CPU 16000000UL

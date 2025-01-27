@@ -12,35 +12,37 @@
 .cseg
 .org 0 
 	
-	ldi counter,6
-	ldi A,0x51
-	ldi B,0x41
-	ldi C,0x21
-	ldi D,0x01
+    ldi counter,6
+    ldi A,0x51
+    ldi B,0x41
+    ldi C,0x21
+    ldi D,0x01
 loop:
-	mov F0,A
-	mov temp2,B
-	com temp2
-	and F0,temp2
-	mov temp3,D
-	and temp3,temp2
-	or F0,temp3
-	com F0
-	mov F1,A
-	mov temp2,C
-	com temp2
-	or F1,temp2
-	mov temp2,B
-	mov temp3,D
-	com temp3
-	or temp3,temp2
-	and F1,temp3
-	inc A
-	subi B,-0x02
-	ldi temp2,0x03
-	add C,temp2
-	ldi temp2,0x04
-	add D,temp2
-	dec counter
-	brne loop
-	
+    ;F0 caclulation
+    mov F0,A	; A
+    mov temp2,B	; B
+    com temp2	; B'
+    and F0,temp2 ; (A and B')
+    mov temp3,D	; D
+    and temp3,temp2 ;(D and B')
+    or F0,temp3	; (A and B') or (D and B')
+    com F0  ; not ((A and B') or (D and B'))
+    ;F1 calculation
+    mov F1,A	; A
+    mov temp2,C	; C
+    com temp2	; C'
+    or F1,temp2	; A or C'
+    mov temp2,B	; B
+    mov temp3,D ; D
+    com temp3	; D'
+    or temp3,temp2  ; B or D'
+    and F1,temp3    ; (A or C') and (B or D')
+    ;Changing values for next iteration
+    inc A
+    subi B,-0x02
+    subi C,-0x03
+    subi D,-0x04
+    dec counter
+    brne loop ;If 6 iterations have been made stop.
+end:
+    nop

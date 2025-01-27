@@ -3,7 +3,7 @@
 #include <util/delay.h>
 
 #define MAX_DC 248    // 98% Duty Cycle
-#define MIN_DC 8 
+#define MIN_DC 8      // 2% Duty Cycle
 
 unsigned char DC_VALUE=148;
 

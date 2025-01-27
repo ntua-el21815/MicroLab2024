@@ -83,19 +83,19 @@ int main(){
     DDRD = 0xFF;
     lcd_init();
     while(1){
-        ADCSRA |= (1 << ADSC); //Start conversion 
-        while (ADCSRA & (1 << ADSC)); //Waiting for conversion to end.
+        ADCSRA |= (1 << ADSC);  //Start conversion 
+        while (ADCSRA & (1 << ADSC));   //Waiting for conversion to end.
         double ADC_value = (double) ADC;
         double voltage = (double) (ADC_value/1024)*5;
         char chars[4];
         convert(voltage,chars);
-         __asm__ __volatile__("nop");
-        lcd_clear_display();
+        // __asm__ __volatile__("nop"); Used for debugging.
+        lcd_clear_display();    //Clear display before showing new measurement
         for(int i=0;i<4;i++){
             lcd_data(chars[i]);
         }
         _delay_ms(1000); //1 second delay
-         __asm__ __volatile__("nop");
+        // __asm__ __volatile__("nop"); same
     }
 }
 

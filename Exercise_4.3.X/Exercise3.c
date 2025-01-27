@@ -74,11 +74,13 @@ int main(){
     ADMUX = (1 << REFS0) | (1 << MUX1); //Setting ADC2 as analog input.VREF AVCC with external capacitor.
     ADCSRA = (1 << ADEN) | (1 << ADIE) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); //Enabling ADC and selecting 128 prescaler for freq.
     DDRC = 0b11111011; //Setting PC2 as input for ADC2
-    DDRD = 0xFF;
-    DDRB = 0xFF;
-    sei();
+    DDRD = 0xFF;    //PORTD as output
+    DDRB = 0xFF;    //PORTB as output
+    sei();          //Enable interrupts
+    
     while(1){
-        ADCSRA |= (1 << ADSC); //Start conversion 
+        ADCSRA |= (1 << ADSC); //Start ADC conversion 
+        //When the conversion stops an interrupt will be triggered
    
         lcd_clear_display();
         if(level > 3){
@@ -100,7 +102,7 @@ int main(){
             }
             PORTB = level;
         }
-        _delay_ms(100); //1 second delay
+        _delay_ms(100); //100 milliseconds delay
     }
 }
 

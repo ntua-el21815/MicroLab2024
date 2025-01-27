@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Wait.asm Function.asm
+SOURCEFILES_QUOTED_IF_SPACED=Function.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Wait.obj ${OBJECTDIR}/Function.obj
-POSSIBLE_DEPFILES=${OBJECTDIR}/Wait.obj.d ${OBJECTDIR}/Function.obj.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Function.obj
+POSSIBLE_DEPFILES=${OBJECTDIR}/Function.obj.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Wait.obj ${OBJECTDIR}/Function.obj
+OBJECTFILES=${OBJECTDIR}/Function.obj
 
 # Source Files
-SOURCEFILES=Wait.asm Function.asm
+SOURCEFILES=Function.asm
 
 # Pack Options 
 PACK_ASSEMBLER_OPTIONS=-I "${DFP_DIR}/avrasm/inc"  -i m328PBdef.inc
@@ -90,22 +90,12 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Wait.obj: Wait.asm  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} ${DISTDIR} 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Wait.obj 
-	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -m ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.map  -S ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.tmp Wait.asm
 ${OBJECTDIR}/Function.obj: Function.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} ${DISTDIR} 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Function.obj 
 	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -m ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.map  -S ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.tmp Function.asm
 else
-${OBJECTDIR}/Wait.obj: Wait.asm  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} ${DISTDIR} 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Wait.obj 
-	${MP_AS}  -fI -W+ie ${PACK_ASSEMBLER_OPTIONS} -d ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -S ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.tmp  -o ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.hex  -m ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.map  -l ${DISTDIR}/Wait_Routine.X.${IMAGE_TYPE}.lss Wait.asm
 ${OBJECTDIR}/Function.obj: Function.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} ${DISTDIR} 
 	@${MKDIR} "${OBJECTDIR}" 

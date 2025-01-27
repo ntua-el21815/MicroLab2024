@@ -7,7 +7,7 @@
 
 .equ DEL_NU3=5 ; delay_ms routine: (1000 DEL NU+6) cycles
 
-.def counter=r22 ;Just a flag to see if the timer of the lights finished its cycle.
+.def flag=r22 ;Just a flag to see if the timer of the lights finished its cycle.
 
 .org 0x0
 rjmp reset
@@ -31,7 +31,7 @@ ISR1:
 	brne start
     ;Main body of the routine
     in r24,PORTB
-    andi r24,0x01 ;If 1st bit of PORTB is set then we have refresh
+    andi r24,0x01 ;If 1east significant bit of PORTB (our light) is set then we have refresh
     breq no_refresh ;Otherwise there is no refresh 
     ser r26
     out PORTB,r26
@@ -42,7 +42,7 @@ ISR1:
     no_refresh:
 	ldi r26 ,0x01
 	out PORTB,r26
-	ldi counter,0x00
+	ldi flag,0x00
     ;End of main body
     ldi r24, (1 << INTF1)
     out EIFR, r24 ; Clear external interrupt 1 flag
@@ -73,18 +73,18 @@ reset:
     ldi r24, (1 << INT1)
     out EIMSK, r24
     sei ; Sets the Global Interrupt Flag
-    ldi counter,0x01
+    ldi flag,0x01
     clr r26
     out PORTB,r26
 main:
-    cpi counter,0x01
+    cpi flag,0x01   ;If the flag is 1 we need to trun on the light
     breq main
     ldi r26,0x01
     out PORTB,r26
     ldi r24, low (DEL_NU2) ;5s delay for the light.
     ldi r25, high (DEL_NU2) 
     rcall wait_x_msec
-    ldi counter,0x01
+    ldi flag,0x01
     clr r26
     out PORTB,r26
     rjmp main

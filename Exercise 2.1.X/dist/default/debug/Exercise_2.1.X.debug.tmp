@@ -23,10 +23,10 @@
   <reset><FILE>IntCounter.asm</FILE><LINE>44</LINE></reset>
   <ISR1><FILE>IntCounter.asm</FILE><LINE>14</LINE></ISR1>
   <start><FILE>IntCounter.asm</FILE><LINE>19</LINE></start>
-  <delay_ms><FILE>IntCounter.asm</FILE><LINE>80</LINE></delay_ms>
+  <delay_ms><FILE>IntCounter.asm</FILE><LINE>82</LINE></delay_ms>
   <return><FILE>IntCounter.asm</FILE><LINE>34</LINE></return>
-  <loop1><FILE>IntCounter.asm</FILE><LINE>64</LINE></loop1>
-  <loop2><FILE>IntCounter.asm</FILE><LINE>66</LINE></loop2>
-  <loop_inn><FILE>IntCounter.asm</FILE><LINE>84</LINE></loop_inn>
+  <loop1><FILE>IntCounter.asm</FILE><LINE>66</LINE></loop1>
+  <loop2><FILE>IntCounter.asm</FILE><LINE>68</LINE></loop2>
+  <loop_inn><FILE>IntCounter.asm</FILE><LINE>86</LINE></loop_inn>
  </LABELS>
 </ASSEMBLER_INFO>

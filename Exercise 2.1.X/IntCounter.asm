@@ -25,16 +25,14 @@ ISR1:
 	andi r24,0x01
 	brne start
     in r20,PIND
-    andi r20,0x20
+    andi r20,0x20   ;If PD5 is pressed no interrupts shall be counted.
     breq return
-    inc counter
-    cpi counter,0x40
+    inc counter	    ;If PD5 not pressed count as normal.
+    cpi counter,0x40	;The counter should be at most 63 before its zeroed out.
     brne return
     ldi counter,0x0
 return:
-    out PORTC,counter
-    ldi r24, (1 << INTF1)
-    out EIFR, r24 ; Clear external interrupt 1 flag
+    out PORTC,counter	;counter is visualised through PORTC
     pop r24
     out SREG,r24
     pop r24
@@ -50,17 +48,19 @@ reset:
     ;Init PORTB as output
     ser r26
     out DDRB, r26
+    ;Init PORTC as output
     out DDRC,r26
     clr r26
+    ;Init PORTD as input
     out DDRD,r26
-    ; Interrupt on rising edge of INTO pin
+    ; Interrupt on rising edge of INT1 pin
     ldi r24, (1 << ISC11) | (1 << ISC10) 
     sts EICRA, r24
-    ;Enable the INTO interrupt (PD2)
+    ;Enable the INT1 interrupt (PD3)
     ldi r24, (1 << INT1)
     out EIMSK, r24
     sei ; Sets the Global Interrupt Flag
-    clr counter;Intially counter = 0
+    clr counter	;Initially counter = 0
 loop1:
     clr r26
 loop2:

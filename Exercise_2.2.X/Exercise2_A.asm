@@ -15,16 +15,6 @@ reset:
     ;Init PORTC as output
     ser r26
     out DDRC,r26
-    ;Init PORTD as input
-    clr r26
-    out DDRD,r26
-    ; Interrupt on rising edge of INTO pin
-    ldi r24, (1 << ISC11) | (1 << ISC10) 
-    sts EICRA, r24
-    ;Enable the INTO interrupt (PD2)
-    ldi r24, (1 << INT1)
-    out EIMSK, r24
-    sei ; Sets the Global Interrupt Flag
 loop1:
     clr r26
 loop2:
