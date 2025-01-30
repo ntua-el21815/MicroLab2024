@@ -1,5 +1,5 @@
-build/default/debug/Exercise3.o.d build/default/debug/Exercise3.o: \
- Exercise3.c \
+build/default/debug/ExamProgram.o.d build/default/debug/ExamProgram.o: \
+ ExamProgram.c \
  c:\program\ files\microchip\xc8\v2.50\avr\avr\include\string.h \
  c:\program\ files\microchip\xc8\v2.50\avr\avr\include\features.h \
  c:\program\ files\microchip\xc8\v2.50\avr\avr\include\bits\alltypes.h \

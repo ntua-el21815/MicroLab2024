@@ -61,25 +61,32 @@ int16_t read_temp(){
     if(!one_wire_reset()){
         return 0x8000;
     }
-    one_wire_transmit_byte(0xCC);
-    one_wire_transmit_byte(0x44);
-    while(!one_wire_receive_bit());
-    one_wire_reset();
-    one_wire_transmit_byte(0xCC);
-    one_wire_transmit_byte(0xBE);
-    uint16_t lsb = (uint16_t) one_wire_receive_byte();
-    uint16_t msb = (uint16_t) one_wire_receive_byte();
+    one_wire_transmit_byte(0xCC);   //Bypass option for multiple devices (only one is present in our case)
+    one_wire_transmit_byte(0x44);   //Start a temperature measurement
+    while(!one_wire_receive_bit()); //When it is done a '1' bit will be sent
+    one_wire_reset();               //Re-initiate device
+    one_wire_transmit_byte(0xCC);   //Bypass option for multiple devices (only one is present in our case)
+    one_wire_transmit_byte(0xBE);   //Send command to read the 16 bit temperature measurement
+    uint16_t lsb = (uint16_t) one_wire_receive_byte();  //Get lsb of measurement
+    uint16_t msb = (uint16_t) one_wire_receive_byte();  //Get msb of measurement
+    //Returned Value is of the form SSSSS{temp} S->Sign temp->0.5C accurate temperature
     int16_t signed_temp = ((msb << 8) & 0xFF00) | (lsb & 0x00FF);
     return signed_temp;
 }
 
+/* 
+ *  VERY IMPORTANT This routine works ONLY for DS18B20 and should be altered
+ *  in order to work for the DS1820
+ */
 double get_temp(int16_t bin_temp){
-    uint16_t celsius = bin_temp & 0x07FF;
-    char sign = bin_temp & 0xF000;
+    uint16_t celsius = bin_temp & 0x07FF;   //Unsigned value of temperature
+    char sign = bin_temp & 0xF000;  //Sign bits (1 -> - , 0 -> +)
     if(sign == 0){
+        //Temperature is in this case positive
         sign = 1;
     }
     else{
+        //Temperature is in this case negative
         sign = -1;
     }
     double temperature = (double)celsius * 0.0625;

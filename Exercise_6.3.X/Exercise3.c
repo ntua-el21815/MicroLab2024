@@ -207,31 +207,40 @@ char keypad_to_ascii(){
 }
 
 int main(void) {
-    twi_init();
+    twi_init(); //Initialise two wire interface
     PCA9555_0_write(REG_CONFIGURATION_1, 0xF0); //Set EXT_PORT1(4-7) as input and EXT_PORT (0-3) as output
-    DDRB = 0xFF; //Set PB0-PB3 as output
+    DDRB = 0xFF; //Set PORTB as output
     while(1)
     {
         PORTB = 0b00000000;
         char read1;
+        //Waiting for some button to be pressed
         while((read1 = keypad_to_ascii()) == ' ');
         char read2;
+        //The first button may be pressed for long,so we wait till it is no
+        //longer pressed
         while((read2 = keypad_to_ascii()) == read1){
             if(read2 == ' '){
                 break;
             }
         }
+        //Now,we wait for the 2nd button to be pressed
         while(read2 == ' '){
             read2 = keypad_to_ascii();
         }
+        //Waiting till the button is no longer pressed,thumb is lifted
         while(read2 == keypad_to_ascii());
         if(read1 == '5' && read2 == '3'){
+            //Right combination triggers success led sequence
             PORTB = 0XFF;
             _delay_ms(3000);
             PORTB = 0x00;
+            //Irrespective of success or failure there shall be no pin entered 
+            //for 5s after an attempt is made
             _delay_ms(2000);
         }
         else{
+            //Wrong combination triggers failure led sequence
             for(int i=0;i<5;i++){
                 PORTB = 0XFF;
                 _delay_ms(500);

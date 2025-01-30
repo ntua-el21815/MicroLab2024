@@ -188,7 +188,6 @@ uint16_t scan_keypad_rising_edge(){
     uint16_t pressed_keys_tempo = scan_keypad();
     _delay_ms(15); //Delays to combat sparking
     pressed_keys_tempo |= scan_keypad();
-    //pressed_keys_tempo = ~pressed_keys | pressed_keys_tempo;
     pressed_keys = pressed_keys_tempo;
     return pressed_keys_tempo;
 }
@@ -280,16 +279,17 @@ void lcd_init(void) {
 }
 
 int main(void) {
-    twi_init();
+    twi_init(); //Initialise two wire interface
     PCA9555_0_write(REG_CONFIGURATION_1, 0xF0); //Set EXT_PORT1(4-7) as input and EXT_PORT (0-3) as output
     PCA9555_0_write(REG_CONFIGURATION_0, 0x00); //Set EXT_PORT0 as output Configuration port 0 register
     lcd_init();
     lcd_clear_display();
-    DDRB = 0xFF; //Set PB0-PB3 as output
+    DDRB = 0xFF; //Set PORTB as output
     PORTB = 0b00000000;
     while(1)
     {
         char read = keypad_to_ascii();
+        //If read == ' ' there is no button pressed atm so the previously pressed button persists
         if(read != ' '){
             lcd_clear_display();
             lcd_data(read);

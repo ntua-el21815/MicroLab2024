@@ -1,6 +1,5 @@
 .include "m328PBdef.inc" ;ATmega328P microcontroller definitions
     
-.def index = r30
 .def DC_VALUE = r20
 .def temp = r16    
     
@@ -39,7 +38,7 @@ reset:
     add ZL,temp
     no_carry:
     ; Load the specific entry from SRAM
-    lpm DC_VALUE, Z                    ; Load the byte at address in Z into r0
+    lpm DC_VALUE, Z                    ; Load the byte at address in Z into DC_VALUE (r20)
 main: 
     ;Since the resolution is 8-bit anyway only OCR1AL plays a role.(Right adjusted)
     sts OCR1AL,DC_VALUE

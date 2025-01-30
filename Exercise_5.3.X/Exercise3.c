@@ -243,20 +243,20 @@ void lcd_init(void) {
 }
 
 int main(void) {
-    twi_init();
+    twi_init(); //Initialise two wire interface
     PCA9555_0_write(REG_CONFIGURATION_0, 0x00); //Set EXT_PORT0 as output Configuration port 0 register
-    lcd_init();
+    lcd_init(); //Initialise LCD display
     lcd_clear_display();
     for(int i=0;i<15;i++){
         lcd_data(msg[i]);
     }
-    lcd_command(0xC0);
+    lcd_command(0xC0);  //Set DDRAM address to 0x40 to write the 2nd name in the 2nd line of the display
     for(int i=0;i<19;i++){
         lcd_data(msg2[i]);
     }
     while(1)
     {
-        lcd_command(0x18);
+        lcd_command(0x18);  //Display shift left for the whole name to be visible
         _delay_ms(500);
     }
 }

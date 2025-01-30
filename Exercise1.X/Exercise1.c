@@ -40,9 +40,9 @@ typedef enum {
 
 void twi_init(void)
 {
-//initialize TWI clock
-TWSR0 = 0; // PRESCALER_VALUE=1
-TWBR0 = TWBR0_VALUE; // SCL_CLOCK 100KHz
+    //initialize TWI clock
+    TWSR0 = 0; // PRESCALER_VALUE=1
+    TWBR0 = TWBR0_VALUE; // SCL_CLOCK 100KHz
 }
 
 // Read one byte from the twi device (request more data from device)
@@ -135,7 +135,7 @@ unsigned char twi_rep_start(unsigned char address)
     // Send repeated start condition, address, transfer direction
     //Return: 0 device accessible
     // 1 failed to access device
-    return twi_start( address );
+    return twi_start(address);
 }
 
 void twi_stop(void)
@@ -168,7 +168,7 @@ uint8_t PCA9555_0_read(PCA9555_REGISTERS reg)
 
 int main(void) {
     twi_init();
-    PCA9555_0_write(REG_CONFIGURATION_0, 0x00); //Set EXT_PORT0 as output Configuration port 0 register
+    PCA9555_0_write(REG_CONFIGURATION_0, 0x00); //Set EXT_PORT0 as output using Configuration port 0 register
     DDRB &= ~(1<<PB0 & 1<<PB1 & 1<<PB2 & 1<<PB3); //Initialising PORTB[0:3] as input
     while(1)
     {

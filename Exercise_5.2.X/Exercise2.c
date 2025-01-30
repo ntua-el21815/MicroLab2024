@@ -167,9 +167,9 @@ uint8_t PCA9555_0_read(PCA9555_REGISTERS reg)
 }
 
 int main(void) {
-    twi_init();
-    PCA9555_0_write(REG_CONFIGURATION_0, 0xF0); //Set EXT_PORT0(0-3) as output Configuration port 0 register
-    PCA9555_0_write(REG_CONFIGURATION_1, 0xF0); //Set EXT_PORT1(3-7) as output Configuration port 1 register
+    twi_init(); //Initialise two wire interface
+    PCA9555_0_write(REG_CONFIGURATION_0, 0xF0); //Set EXT_PORT0(0-3) as output using Configuration port 0 register
+    PCA9555_0_write(REG_CONFIGURATION_1, 0xF0); //Set EXT_PORT1(3-7) as input and EXT_PORT(0) as output using Configuration port 1 register
     while(1)
     {
         PCA9555_0_write(REG_OUTPUT_1,0x00);

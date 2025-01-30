@@ -1,0 +1,40 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328PB"</DEVICE>
+ <WORKING_DIR>C:\Users\nicho\MPLABXProjects\Exam3101_asm.X</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>ExamProgram.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/ATmega_DFP/3.0.158/avrasm/inc\m328PBdef.inc</FILE>
+  <FILE>routines.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>dist/default/debug/Exam3101_asm.X.debug.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>ExamProgram.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>dist/default/debug/Exam3101_asm.X.debug.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>ExamProgram.asm</FILE><LINE>7</LINE></reset>
+  <wait_inner><FILE>routines.inc</FILE><LINE>11</LINE></wait_inner>
+  <wait_usec><FILE>routines.inc</FILE><LINE>18</LINE></wait_usec>
+  <loopa><FILE>routines.inc</FILE><LINE>21</LINE></loopa>
+  <delay_inner><FILE>routines.inc</FILE><LINE>30</LINE></delay_inner>
+  <loop3><FILE>routines.inc</FILE><LINE>32</LINE></loop3>
+  <wait_1msec><FILE>routines.inc</FILE><LINE>39</LINE></wait_1msec>
+  <loop5><FILE>routines.inc</FILE><LINE>44</LINE></loop5>
+  <wait_msec><FILE>routines.inc</FILE><LINE>53</LINE></wait_msec>
+  <my_loop><FILE>routines.inc</FILE><LINE>56</LINE></my_loop>
+  <write_2_nibbles><FILE>routines.inc</FILE><LINE>65</LINE></write_2_nibbles>
+  <lcd_data><FILE>routines.inc</FILE><LINE>88</LINE></lcd_data>
+  <lcd_command><FILE>routines.inc</FILE><LINE>97</LINE></lcd_command>
+  <lcd_clear_display><FILE>routines.inc</FILE><LINE>105</LINE></lcd_clear_display>
+  <lcd_init><FILE>routines.inc</FILE><LINE>113</LINE></lcd_init>
+ </LABELS>
+</ASSEMBLER_INFO>

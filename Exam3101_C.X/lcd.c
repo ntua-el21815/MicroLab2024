@@ -80,3 +80,15 @@ void print_lcd(const char* mystr){
     return;
 }
 
+void print_lcd_vol(char* mystr){
+    for(int i=0;i<strlen(mystr);i++){
+        lcd_data(mystr[i]);
+    }
+    return;
+}
+
+void lcd_go_to(uint8_t addr){
+    uint8_t command = (1<<8) | addr;
+    lcd_command(command);
+    return;
+}

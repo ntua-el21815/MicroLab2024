@@ -19,5 +19,9 @@ void lcd_init(void);
 
 void print_lcd(const char* mystr);
 
+void print_lcd_vol(char* mystr);
+
+void lcd_go_to(uint8_t addr);
+
 #endif
 
